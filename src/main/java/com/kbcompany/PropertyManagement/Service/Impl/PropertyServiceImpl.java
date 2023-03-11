@@ -6,6 +6,7 @@ import com.kbcompany.PropertyManagement.Model.PropertyDTO;
 import com.kbcompany.PropertyManagement.Repository.PropertyRepository;
 import com.kbcompany.PropertyManagement.Service.PropertyService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
@@ -13,6 +14,10 @@ import java.util.Optional;
 
 @Service
 public class PropertyServiceImpl implements PropertyService {
+    @Value("${pms.dummy:}")
+    private String dummy;
+    @Value("${spring.datasource.url:}")
+    private String DBurl;
     @Autowired
     private PropertyRepository propertyRepository;
     @Autowired
@@ -27,6 +32,7 @@ public class PropertyServiceImpl implements PropertyService {
 
     @Override
     public List<PropertyDTO> getAllProperties() {
+        System.out.println("Inside service "+dummy);
         List<PropertyEntity> listofproperties = (List<PropertyEntity>) propertyRepository.findAll();
         List<PropertyDTO> propertyList = new ArrayList<>();
         for(PropertyEntity PE : listofproperties){
@@ -44,8 +50,6 @@ public class PropertyServiceImpl implements PropertyService {
             PropertyEntity PE = OptionEntity.get(); // Data from DB
             PE.setTitle(propertyDTO.getTitle());
             PE.setAddress(propertyDTO.getAddress());
-            PE.setOwnerEmail(propertyDTO.getOwnerEmail());
-            PE.setOwnerName(propertyDTO.getOwnerName());
             PE.setPrice(propertyDTO.getPrice());
             PE.setDescription(propertyDTO.getDescription());
             DTO =propertyConverter.conv_Entity_to_DTO(PE);

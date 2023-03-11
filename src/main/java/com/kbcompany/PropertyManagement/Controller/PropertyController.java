@@ -3,6 +3,7 @@ package com.kbcompany.PropertyManagement.Controller;
 import com.kbcompany.PropertyManagement.Model.PropertyDTO;
 import com.kbcompany.PropertyManagement.Service.PropertyService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,6 +13,10 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/v1")
 public class PropertyController {
+    @Value("${pms.dummy:}")
+    private String dummy;
+    @Value("${spring.datasource.url:}")
+    private String DBurl;
     @Autowired
     private PropertyService propertyService;
     @GetMapping("/hello")
@@ -26,9 +31,11 @@ public class PropertyController {
     }
     @GetMapping("/properties")
     public ResponseEntity<List<PropertyDTO>> getAllProperties(){
-       List<PropertyDTO> propertyList = propertyService.getAllProperties();
-       ResponseEntity<List<PropertyDTO>> responseEntity = new ResponseEntity<>(propertyList,HttpStatus.OK);
-       return responseEntity;
+        System.out.println(dummy);
+        System.out.println(DBurl);
+        List<PropertyDTO> propertyList = propertyService.getAllProperties();
+        ResponseEntity<List<PropertyDTO>> responseEntity = new ResponseEntity<>(propertyList,HttpStatus.OK);
+        return responseEntity;
     }
     @PutMapping("/properties/{propertyID}")
     public ResponseEntity<PropertyDTO> updateProperty(@RequestBody PropertyDTO propertyDTO, @PathVariable Long propertyID){
