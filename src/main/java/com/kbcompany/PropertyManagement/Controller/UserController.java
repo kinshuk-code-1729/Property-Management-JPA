@@ -1,6 +1,5 @@
 package com.kbcompany.PropertyManagement.Controller;
 
-import com.kbcompany.PropertyManagement.Model.PropertyDTO;
 import com.kbcompany.PropertyManagement.Model.UserDTO;
 import com.kbcompany.PropertyManagement.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;

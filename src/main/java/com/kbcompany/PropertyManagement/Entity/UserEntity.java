@@ -14,7 +14,7 @@ import javax.persistence.*;
 public class UserEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long ID;
+    private Long Id;
     private String ownerName;
     @Column(name = "Email",nullable = false)
     private String ownerEmail;
