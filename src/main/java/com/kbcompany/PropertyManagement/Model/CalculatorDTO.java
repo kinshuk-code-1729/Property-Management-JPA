@@ -1,7 +1,6 @@
 package com.kbcompany.PropertyManagement.Model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonSubTypes;
 
 public class CalculatorDTO {
     private Double n1;
