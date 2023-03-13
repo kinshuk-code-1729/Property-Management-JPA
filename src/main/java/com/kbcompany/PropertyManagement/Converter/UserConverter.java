@@ -16,9 +16,10 @@ public class UserConverter {
     }
     public UserDTO conv_Entity_to_DTO(UserEntity userEntity){
         UserDTO userDTO = new UserDTO();
+        userDTO.setId(userEntity.getId());
         userDTO.setOwnerEmail(userEntity.getOwnerEmail());
-        userDTO.setOwnerName(userDTO.getOwnerName());
-        userDTO.setPasswd(userDTO.getPasswd());
+        userDTO.setOwnerName(userEntity.getOwnerName());
+        userDTO.setPhone(userEntity.getPhone());
         return userDTO;
     }
 }
