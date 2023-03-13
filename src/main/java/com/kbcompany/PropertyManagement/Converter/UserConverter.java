@@ -10,7 +10,7 @@ public class UserConverter {
         UserEntity userEntity = new UserEntity();
         userEntity.setOwnerEmail(userDTO.getOwnerEmail());
         userEntity.setOwnerName(userDTO.getOwnerName());
-        userEntity.setPasswd(userDTO.getPasswd());
+        userEntity.setPassword(userDTO.getPassword());
         userEntity.setPhone(userDTO.getPhone());
         return userEntity;
     }
