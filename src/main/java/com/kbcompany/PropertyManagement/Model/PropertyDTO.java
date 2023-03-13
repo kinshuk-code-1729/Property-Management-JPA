@@ -10,7 +10,7 @@ public class PropertyDTO {
     private String title;
     private String description;
     private String ownerName;
-    private String ownerEmail;
+    private String email;
     private double price;
     private String address;
 }
