@@ -16,12 +16,12 @@ import javax.validation.constraints.Size;
 public class UserDTO {
     private Long id;
     private String ownerName;
-    @NotNull(message = "Owner Email is mandatory")
+    @NotNull(message = "Owner Email is mandatory .....")
     @NotEmpty(message = "Owner Email cannot be empty !!!!")
     @Size(min = 1,max = 50,message = "Email address can be written in 1 - 50 chars long !!!!")
     private String ownerEmail;
     private String phone;
-   @NotNull(message = "A password can never null ")
-   @NotEmpty(message = "Empty Passwords are not allowed !!!")
+   @NotNull(message = "A password can never be null ")
+   @NotEmpty(message = "User Passwords cannot be empty !!!")
     private String password;
 }
