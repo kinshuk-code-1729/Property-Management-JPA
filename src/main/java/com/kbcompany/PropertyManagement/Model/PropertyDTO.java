@@ -6,11 +6,10 @@ import lombok.Setter;
 @Getter
 @Setter
 public class PropertyDTO {
-    private Long Id;
+    private Long id;
     private String title;
     private String description;
-    private String ownerName;
-    private String email;
     private double price;
     private String address;
+    private Long userId;
 }

@@ -13,7 +13,7 @@ public class SwaggerConfig implements WebMvcConfigurer {
     @Bean
     public Docket appApi(){
         Docket docket = new Docket(DocumentationType.SWAGGER_2)
-                .select().apis(RequestHandlerSelectors.basePackage("com.mycompany.propertymanagement.controller"))
+                .select().apis(RequestHandlerSelectors.basePackage("com.kbcompany.PropertyManagement.Controller"))
                 .paths((PathSelectors.regex("/.*"))).build();
         return docket;
     }

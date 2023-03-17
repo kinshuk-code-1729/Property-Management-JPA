@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 public interface PropertyService {
     PropertyDTO saveProperty(PropertyDTO propertyDTO);
     List<PropertyDTO> getAllProperties();
+    List<PropertyDTO> getAllPropertiesForOwner(Long userID);
     PropertyDTO updateProperty(PropertyDTO propertyDTO,Long propertyID);
     PropertyDTO updatePropertyDescription(@RequestBody PropertyDTO propertyDTO, Long propertyID);
     PropertyDTO updatePropertyPrice(@RequestBody PropertyDTO propertyDTO, Long propertyID);
