@@ -21,7 +21,12 @@ public class UserDTO {
     @Size(min = 1,max = 50,message = "Email address can be written in 1 - 50 chars long !!!!")
     private String ownerEmail;
     private String phone;
-   @NotNull(message = "A password can never be null ")
-   @NotEmpty(message = "User Passwords cannot be empty !!!")
+    @NotNull(message = "A password can never be null ")
+    @NotEmpty(message = "User Passwords cannot be empty !!!")
     private String password;
+    private String houseNo;
+    private String street;
+    private String city;
+    private String postalCode;
+    private String country;
 }

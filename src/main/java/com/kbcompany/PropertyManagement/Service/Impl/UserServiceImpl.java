@@ -1,10 +1,12 @@
 package com.kbcompany.PropertyManagement.Service.Impl;
 
 import com.kbcompany.PropertyManagement.Converter.UserConverter;
+import com.kbcompany.PropertyManagement.Entity.AddressEntity;
 import com.kbcompany.PropertyManagement.Entity.UserEntity;
 import com.kbcompany.PropertyManagement.Exception.BuisnessException;
 import com.kbcompany.PropertyManagement.Exception.ErrorModel;
 import com.kbcompany.PropertyManagement.Model.UserDTO;
+import com.kbcompany.PropertyManagement.Repository.AddressRepository;
 import com.kbcompany.PropertyManagement.Repository.UserRepository;
 import com.kbcompany.PropertyManagement.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +21,8 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserRepository userRepository;
     @Autowired
+    private AddressRepository addressRepository;
+    @Autowired
     private UserConverter userConverter;
     @Override
     public UserDTO register(UserDTO userDTO) {
@@ -32,8 +36,19 @@ public class UserServiceImpl implements UserService {
 
             throw new BuisnessException(errorModelList);
         }
+
         UserEntity userEntity = userConverter.conv_DTO_to_Entity(userDTO);
         userEntity = userRepository.save(userEntity);
+
+        AddressEntity addressEntity = new AddressEntity();
+        addressEntity.setHouseNo(userDTO.getHouseNo());
+        addressEntity.setCity(userDTO.getCity());
+        addressEntity.setPostalCode(userDTO.getPostalCode());
+        addressEntity.setStreet(userDTO.getStreet());
+        addressEntity.setCountry(userDTO.getCountry());
+        addressEntity.setUserEntity(userEntity);
+
+        addressRepository.save(addressEntity);
         userDTO = userConverter.conv_Entity_to_DTO(userEntity);
         return userDTO;
     }
