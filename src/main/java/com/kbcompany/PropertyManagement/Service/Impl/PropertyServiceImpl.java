@@ -63,7 +63,7 @@ public class PropertyServiceImpl implements PropertyService {
 
     @Override
     public List<PropertyDTO> getAllPropertiesForOwner(Long userId) {
-        List<PropertyEntity> listofproperties = (List<PropertyEntity>) propertyRepository.findAllbyUserEntityId(userId);
+        List<PropertyEntity> listofproperties = (List<PropertyEntity>) propertyRepository.findAllByUserEntityId(userId);
         List<PropertyDTO> propertyList = new ArrayList<>();
         for(PropertyEntity pe : listofproperties){
             PropertyDTO dto = propertyConverter.conv_Entity_to_DTO(pe);

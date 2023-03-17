@@ -10,5 +10,5 @@ import java.util.List;
 public interface PropertyRepository extends CrudRepository<PropertyEntity,Long> {
 //    @Query("SELECT p FROM PropertyEntity p WHERE p.userEntity.id = :userId and p.title = :title")
 //    List<PropertyEntity> finAllbyUserEntityId(@Param("userId") Long userId,@Param("title") Long title);
-    List<PropertyEntity> findAllbyUserEntityId(@Param("userId") Long userId);
+    List<PropertyEntity> findAllByUserEntityId(@Param("userId") Long userId);
 }
